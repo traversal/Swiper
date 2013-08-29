@@ -2225,6 +2225,13 @@ Swiper.prototype = {
         x=x||0;
         y=y||0;
         z=z||0;
+        
+        if (this.params.rounding) {
+          x = Math.ceil(x);
+          y = Math.ceil(y);
+          z = Math.ceil(z);
+        }
+        
         if (this.params.useCSS3Transforms) {
             if (this.support.transforms3d) {
                 es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d('+x+'px, '+y+'px, '+z+'px)'
@@ -2347,6 +2354,13 @@ Swiper.prototype = {
             y : translate.y || 0,
             z : translate.z || 0
         };
+        
+        if (this.params.rounding) {
+          x = Math.ceil(x);
+          y = Math.ceil(y);
+          z = Math.ceil(z);
+        }
+        
         var transformString = this.support.transforms3d ? 'translate3d('+(pos.x)+'px,'+(pos.y)+'px,'+(pos.z)+'px)' : 'translate('+(pos.x)+'px,'+(pos.y)+'px)';
         es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = transformString;
         if (!this.support.transforms) {
