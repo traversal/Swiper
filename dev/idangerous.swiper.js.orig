@@ -2258,10 +2258,30 @@ Swiper.prototype = {
         return curTransform || 0;
     },
 
+<<<<<<< HEAD
+    setWrapperTranslate : function(x,y,z) {
+        var es = this.wrapper.style
+        x=x||0;
+        y=y||0;
+        z=z||0;
+        
+        if (this.params.rounding) {
+          x = Math.ceil(x);
+          y = Math.ceil(y);
+          z = Math.ceil(z);
+        }
+        
+        if (this.params.useCSS3Transforms) {
+            if (this.support.transforms3d) {
+                es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d('+x+'px, '+y+'px, '+z+'px)'
+            }
+            else {
+=======
     setWrapperTranslate : function (x, y, z) {
         var es = this.wrapper.style,
             coords = {x: 0, y: 0, z: 0},
             translate;
+>>>>>>> upstream/master
 
         // passed all coordinates
         if (arguments.length == 3) {
@@ -2276,12 +2296,6 @@ Swiper.prototype = {
                 y = this.params.mode == 'horizontal' ? 'x' : 'y';
             }
             coords[y] = x;
-        }
-
-   if (this.params.rounding) {
-          coords.x = Math.ceil(coords.x);
-          coords.y = Math.ceil(coords.y);
-          coords.z = Math.ceil(coords.z);
         }
 
         if (this.support.transforms && this.params.useCSS3Transforms) {

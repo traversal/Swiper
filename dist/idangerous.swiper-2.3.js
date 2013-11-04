@@ -1,5 +1,5 @@
 /*
- * Swiper 2.3+ - Mobile Touch Slider
+ * Swiper 2.3 - Mobile Touch Slider
  * http://www.idangero.us/sliders/swiper/
  *
  * Copyright 2012-2013, Vladimir Kharlampidi
@@ -2278,12 +2278,6 @@ Swiper.prototype = {
             coords[y] = x;
         }
 
-   if (this.params.rounding) {
-          coords.x = Math.ceil(coords.x);
-          coords.y = Math.ceil(coords.y);
-          coords.z = Math.ceil(coords.z);
-        }
-
         if (this.support.transforms && this.params.useCSS3Transforms) {
             translate = this.support.transforms3d ? 'translate3d(' + coords.x + 'px, ' + coords.y + 'px, ' + coords.z + 'px)' : 'translate(' + coords.x + 'px, ' + coords.y + 'px)';
             es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = translate;
@@ -2409,13 +2403,6 @@ Swiper.prototype = {
             y : translate.y || 0,
             z : translate.z || 0
         };
-        
-        if (this.params.rounding) {
-          x = Math.ceil(x);
-          y = Math.ceil(y);
-          z = Math.ceil(z);
-        }
-        
         var transformString = this.support.transforms3d ? 'translate3d('+(pos.x)+'px,'+(pos.y)+'px,'+(pos.z)+'px)' : 'translate('+(pos.x)+'px,'+(pos.y)+'px)';
         es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = transformString;
         if (!this.support.transforms) {
